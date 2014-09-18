@@ -36,18 +36,18 @@ def check_reg(rpath, rkey, regex=None):
 
 
 
-checks = [ { 'path' : 'Software\Microsoft\Windows\CurrentVersion\RunServices', 'key' : '*', 'regex' : 'exe|bat|pif|com|hta'  },
-           { 'path' : 'Software\Microsoft\Windows\CurrentVersion\RunServicesOnce', 'key' : '*', 'regex' : 'exe|bat|pif|com|hta' },
-           { 'path' : 'Software\Microsoft\Windows\CurrentVersion\Run', 'key' : '*', 'regex' : 'exe|bat|pif|com|hta' },
-           { 'path' : 'Software\Microsoft\Windows\CurrentVersion\RunOnce', 'key' : '*', 'regex' : 'exe|bat|pif|com|hta' },
-           { 'path' : 'Software\Microsoft\Windows\CurrentVersion\RunOnceEx', 'key' : '*', 'regex' : 'exe|bat|pif|com|hta' },
-           { 'path' : 'Software\CLASSES\batfile\shell\open\command', 'key' : '*', 'regex' : 'exe|bat|pif|com|hta' },
-           { 'path' : 'Software\CLASSES\comfile\shell\open\command', 'key' : '*', 'regex' : 'exe|bat|pif|com|hta' },
-           { 'path' : 'Software\CLASSES\exefile\shell\open\command', 'key' : '*', 'regex' : 'exe|bat|pif|com|hta' },
-           { 'path' : 'Software\CLASSES\htafile\Shell\Open\Command', 'key' : '*', 'regex' : 'exe|bat|pif|com|hta' },
-           { 'path' : 'Software\CLASSES\piffile\shell\open\command', 'key' : '*', 'regex' : 'exe|bat|pif|com|hta' },
-           { 'path' : 'SOFTWARE\Microsoft\Code Store Database\Distribution Units', 'key' : '*', 'regex' : 'exe|bat|pif|com|hta' },
-           { 'path' : 'Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders', 'key' : '*', 'regex' : 'exe|bat|pif|com|hta' },
+checks = [ { 'path' : 'Software\Microsoft\Windows\CurrentVersion\RunServices', 'key' : '*', 'regex' : 'exe|dll|bat|pif|com|hta'  },
+           { 'path' : 'Software\Microsoft\Windows\CurrentVersion\RunServicesOnce', 'key' : '*', 'regex' : 'exe|dll|bat|pif|com|hta' },
+           { 'path' : 'Software\Microsoft\Windows\CurrentVersion\Run', 'key' : '*', 'regex' : 'exe|dll|bat|pif|com|hta' },
+           { 'path' : 'Software\Microsoft\Windows\CurrentVersion\RunOnce', 'key' : '*', 'regex' : 'exe|dll|bat|pif|com|hta' },
+           { 'path' : 'Software\Microsoft\Windows\CurrentVersion\RunOnceEx', 'key' : '*', 'regex' : 'exe|dll|bat|pif|com|hta' },
+           { 'path' : 'Software\CLASSES\batfile\shell\open\command', 'key' : '*', 'regex' : 'exe|dll|bat|pif|com|hta' },
+           { 'path' : 'Software\CLASSES\comfile\shell\open\command', 'key' : '*', 'regex' : 'exe|dll|bat|pif|com|hta' },
+           { 'path' : 'Software\CLASSES\exe|dllfile\shell\open\command', 'key' : '*', 'regex' : 'exe|dll|bat|pif|com|hta' },
+           { 'path' : 'Software\CLASSES\htafile\Shell\Open\Command', 'key' : '*', 'regex' : 'exe|dll|bat|pif|com|hta' },
+           { 'path' : 'Software\CLASSES\piffile\shell\open\command', 'key' : '*', 'regex' : 'exe|dll|bat|pif|com|hta' },
+           { 'path' : 'SOFTWARE\Microsoft\Code Store Database\Distribution Units', 'key' : '*', 'regex' : 'exe|dll|bat|pif|com|hta' },
+           { 'path' : 'Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders', 'key' : '*', 'regex' : 'exe|dll|bat|pif|com|hta' },
          ]
 
 for check in checks:
