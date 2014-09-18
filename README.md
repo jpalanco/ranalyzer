@@ -1,0 +1,4 @@
+ranalyzer
+=========
+
+Registry analyzer
