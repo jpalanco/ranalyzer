@@ -48,6 +48,7 @@ checks = [ { 'path' : 'Software\Microsoft\Windows\CurrentVersion\RunServices', '
            { 'path' : 'Software\CLASSES\piffile\shell\open\command', 'key' : '*', 'regex' : 'exe|dll|bat|pif|com|hta' },
            { 'path' : 'SOFTWARE\Microsoft\Code Store Database\Distribution Units', 'key' : '*', 'regex' : 'exe|dll|bat|pif|com|hta' },
            { 'path' : 'Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders', 'key' : '*', 'regex' : 'exe|dll|bat|pif|com|hta' },
+           {  'path': 'Software\Microsoft\Windows NT\CurrentVersion\Windows', 'key' : 'AppInit_DLLs', 'regex' : '.'  }            
          ]
 
 for check in checks:

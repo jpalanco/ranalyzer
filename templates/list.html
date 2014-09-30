@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}R Analyzer{% endblock %}
+{% block head %}
+    {{ super() }}
+<!-- add custom css and js -->
+{% endblock %}
+
+{% block content %}
+
+<h1>List</h1>
+
+
+{% for item in analysis %}                
+
+
+<table class="pure-table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>View</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+
+    {% for item in analysis %}                       
+     
+            <tr>
+                <td>{{item.id}}</td>
+ 
+                <td><a href="{{ url_for('view', hash=item.id) }}">View</a></td>
+            </tr>
+
+    {% endfor %}
+
+    </tbody>
+</table>
+<br />
+{% endfor %}
+
+
+
+
+{% endblock %}

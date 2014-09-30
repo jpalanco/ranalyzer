@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block title %}R Analyzer{% endblock %}
+{% block head %}
+    {{ super() }}
+<!-- add custom css and js -->
+{% endblock %}
+{% block content %}
+<h1>Overview</h1>
+
+
+    {% for s in suspicious %}
+
+    {% if s.path %}
+    <table class="pure-table">
+        <tbody>    
+        <tr>
+            <td>Path</td>
+            <td>{{s.path}}</td>
+        </tr>
+
+
+        <tr>
+            <td>Key</td>            
+            <td>{{s.key}}</td>
+        </tr>
+
+        <tr>
+            <td>Value</td>            
+            <td>{{s.value}}</td>
+        </tr>
+
+
+
+        {% if s.startup_analysis %}
+        <tr>
+            <td>Rule value</td>            
+            <td>{{s.startup_analysis['value']}}</td>
+        </tr>
+
+
+        <tr>
+            <td>Status {{s.startup_analysis['status']}} </td>
+            <td>
+                {% if s.startup_analysis['status'] == "malicious" %} 
+                <div style="border:3px solid #C86666;">{{s.startup_analysis['status']}}</div>
+                {% elif s.startup_analysis['status'] == "not-malicious" %} 
+                <div style="border:3px solid #66FF99;">{{s.startup_analysis['status']}}</div>
+                {% elif s.startup_analysis['status'] == "users-choice" %} 
+                <div style="border:3px solid #000;">{{s.startup_analysis['status']}}</div>
+                {% elif  s.startup_analysis['status'] == "not-required" %} 
+                <div style="border:3px solid #000;">{{s.startup_analysis['status']}}</div>
+                {% elif s.startup_analysis['status'] == "unknown" %} 
+                <div style="border:3px solid ##FFFF66;">{{s.startup_analysis['status']}}</div>
+                {% else %}
+                <div style="border:3px solid ##FFFF66;">{{s.startup_analysis['status']}}</div>
+                {% endif %}           
+            </td>
+        </tr>
+
+        <tr>
+            <td>Description</td>            
+            <td>{{s.startup_analysis['description']}}</td>
+        </tr>
+
+        {% endif %}
+
+        </tbody>
+    </table>
+    {% endif %}
+    <br />
+    {% else %}
+    <h2>No suspicious information found</h2>
+    {% endfor %}
+
+{% endblock %}

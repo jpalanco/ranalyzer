@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}R Analyzer{% endblock %}
+{% block head %}
+    {{ super() }}
+<!-- add custom css and js -->
+{% endblock %}
+
+{% block content %}
+
+    <a href="{{ url_for('list') }}">View analysis</a>
+
+
+    <h1>Upload a registry file</h1>
+
+    <form class="pure-form pure-form-aligned" action="/upload-registry/" method="post" enctype="multipart/form-data">
+        <fieldset>
+
+            <div class="pure-control-group">
+                <label for="foo">reg file</label>
+                <input id="foo" name="reg" type="file">
+            </div>
+
+            <div class="pure-controls">
+
+                <button type="submit" class="pure-button pure-button-primary">Submit</button>
+            </div>
+        </fieldset>
+    </form>
+
+
+
+
+{% endblock %}
