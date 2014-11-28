@@ -102,6 +102,11 @@ def list():
 
     return render_template('list.html', analysis=analysis)
 
+def check_registry_value(value, check_value, path):
+    pos = value.lower().find(check_value.lower())
+    if pos > 0:
+        return True
+
 
 def check_reg(reg, rpath, rkey, hash, regex=None):
 
@@ -118,15 +123,24 @@ def check_reg(reg, rpath, rkey, hash, regex=None):
                               v.value_type() == Registry.RegExpandSZ]:
             rkname = value.name()
             rkvalue = value.value()
+            report = None
+
             if regex is not None:
                 if re.search(regex, rkvalue):
+
                     startup_analysis = check_startup(rkname, rkvalue)
-                    # FIXME: check if value from the sqlite is contained into the original string
-                    # FIXME: startup_analysis[0] only gets the first report
-                    data = { 'id': hash, 'path' : rpath, 'key' : rkname, 'value' : rkvalue, 'startup_analysis' : startup_analysis[0]}                    
+                    for sa in startup_analysis:
+                        # FIXME: startup_analysis[0] only gets the las report
+                        # FIXME: implement regex
+                        crv = check_registry_value(rkvalue, sa['value'], sa['path'])
+                        if crv > 0:
+                            report = sa
+
+                    data = { 'id': hash, 'path' : rpath, 'key' : rkname, 'value' : rkvalue, 'startup_analysis' : report}                    
                     db.suspicious.insert(data)
     else:
         value = key.value(rkey)
+        #FIXME: check startup
         data = { 'id': hash, 'key' : value.name(), 'value' : str(value.value()) }
         db.suspicious.insert(data)        
 
